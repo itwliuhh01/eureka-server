@@ -1,0 +1,28 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: eureka-server
+  cloud:
+    inetutils:
+      ignored-interfaces:
+        - "VMware Network Adapter VMnet8*"
+eureka:
+  instance:
+    #hostname: 192.168.183.66
+    hostname: 127.0.0.1
+#    ip-address: 127.0.0.1
+    lease-expiration-duration-in-seconds: 90
+#    prefer-ip-address: true
+  client:
+    #表示是否注册自身到eureka服务器
+    registerWithEureka: true
+    #是否从eureka上获取注册信息
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
+  server:
+#    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 10000
+    wait-time-in-ms-when-sync-empty: 60000
+
